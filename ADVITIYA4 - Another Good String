@@ -1,0 +1,55 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 01-February-2024  21:49:01
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll n, ad; cin>>n >>ad;
+    string s; cin>>s;
+
+    // Cycling the string and storing the length of the good string
+    ll count=1, ans=1;
+    for(ll i=1; i<n; ++i){
+        if(s[i]==s[i-1]) ++count;
+        else count=1;
+        if(count>ans) ans=count;
+    }
+
+    // Printing the max length of good string for the given string
+    cout<<ans <<' ';
+
+    // Handling the rest of the input
+    char last = s[n-1];
+    for(ll i=0; i<ad; ++i){
+        char c; cin>>c;
+        // Handling the cases if the input creates a new 
+        //  good string or not
+        if(last==c) count++;
+        else{
+            last = c;
+            count=1;
+        }
+
+        if(count>ans) ans = count;
+        cout<<ans <<' ';
+    }
+    cout<<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
