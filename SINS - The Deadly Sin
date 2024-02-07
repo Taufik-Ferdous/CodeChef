@@ -1,0 +1,29 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 07-February-2024  16:13:32
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    ll a, b; cin>>a >>b;
+
+    ll ans = __gcd(a,b);
+    cout<<ans*2 <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
