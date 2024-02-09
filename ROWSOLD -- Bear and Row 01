@@ -1,0 +1,42 @@
+/**
+ *    Author: lulu (Tasmir_)
+ *    Created: 09-February-2024  11:13:34
+**/
+#include<bits/stdc++.h>
+using namespace std;
+
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+#define ll long long
+
+//====================================
+
+void solve(){
+    string s; cin>>s;
+
+    ll one=0, zero=0, ans=0;
+    bool f=0;
+    for(ll i=0; i<s.length(); ++i){
+        if(s[i]=='1'){
+            if(zero>0){
+                ans +=(one*(zero+1));
+                zero=0;
+            }
+            ++one;
+            f=1;
+        }
+        else if(f) ++zero;
+    }
+    if(zero>0) ans +=(one*(zero+1));
+    cout<<ans <<'\n';
+}
+
+
+int main(){
+    optimize();
+
+    ll t=1;
+    cin>>t;
+    while(t--)
+        solve();
+}
